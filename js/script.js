@@ -36,8 +36,11 @@ btn.addEventListener('click', () => {
                 </p>
 
           `;
-            sound.setAttribute('src', `https:${data[0].phonetics[0].audio}`);
+            sound.setAttribute('src', data[0].phonetics[0].audio);
         })
+
+        //         Change sound.setAttribute(“src”, `https:${data[0].phonetics[0].audio}`);
+        // to: sound.setAttribute(“src”, data[0].phonetics[0].audio);
 
         .catch(() => {
             result.innerHTML = `<h3 class="error">Couldn't Find the Word</h3>`
