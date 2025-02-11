@@ -1,11 +1,11 @@
 const result = document.getElementById('result');
 const sound = document.getElementById('sound');
 const btn = document.getElementById('search-btn');
+let searchInput = document.getElementById('inp-word');
 
 
-
-btn.addEventListener('click', () => {
-
+function handleWordSearch() {
+    
     let inpWord = document.getElementById('inp-word').value;
 
     // Fetching API
@@ -45,8 +45,16 @@ btn.addEventListener('click', () => {
         .catch(() => {
             result.innerHTML = `<h3 class="error">Couldn't Find the Word</h3>`
         })
+    
+}
 
-});
+btn.addEventListener('click', handleWordSearch);
+searchInput.addEventListener('keydown', function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        btn.click();
+    }
+})
 
 // Play sound
 function playSound() {
